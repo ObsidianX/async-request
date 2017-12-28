@@ -21,7 +21,7 @@ Arequest = function (defaultOptions) {
         return _regeneratorRuntime.async(function callee$1$0$(context$2$0) {
             while (1) switch (context$2$0.prev = context$2$0.next) {
                 case 0:
-                    return context$2$0.abrupt("return", new _core.Promise(function (resolve) {
+                    return context$2$0.abrupt("return", new _core.Promise(function (resolve, reject) {
                         Arequest.validateOptions(options);
 
                         options = _.assign({ url: url }, options, defaultOptions);
@@ -30,7 +30,7 @@ Arequest = function (defaultOptions) {
 
                         request(options, function (error, response) {
                             if (error) {
-                                throw new Error(error);
+                                return reject(error);
                             }
 
                             resolve({
